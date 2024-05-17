@@ -1,0 +1,228 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+:root {
+  font-size: 62.5%;
+  font-family: "Mulish", sans-serif;
+  --color-base-blue: hsl(195, 91%, 25%);
+  --color-base-blue-50: hsl(195, 46%, 40%);
+  --color-base-white: hsl(0, 0%, 100%);
+}
+
+#app {
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+  height: 100vh;
+
+  max-width: 43.4rem;
+  margin-inline: auto;
+  box-sizing: content-box;
+}
+
+.container {
+  background-color: var(--color-base-blue);
+  /* width: 43rem; */
+
+  display: flex;
+  align-items: center;
+
+  gap: 2.8rem;
+  padding: 1.2rem 2.8rem;
+}
+
+.container form {
+  flex: 1;
+}
+
+.input-wrapper label {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+}
+
+.input-wrapper input {
+  width: 100%;
+  height: 4rem;
+  padding: 2.5rem;
+
+  background-color: var(--color-base-blue-50);
+  border: 0;
+  border-radius: 0.6rem;
+
+  font-size: 1.6rem;
+  font-weight: 500;
+  opacity: 0.56rem;
+}
+
+.input-wrapper input::placeholder {
+  color: var(--color-base-white);
+}
+
+.avatar {
+  width: 4.2rem;
+  height: 4.2rem;
+  border-radius: 50%;
+}
+
+.form-h1 {
+  padding: 3.1rem 6.6rem 0rem 2.2rem;
+}
+
+h1 {
+  font-size: 2.4rem;
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+}
+
+form button {
+  border: 0;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.gato1 {
+  width: 100%;
+}
+
+main p {
+  font-size: 1.6rem;
+  line-height: 2rem;
+  margin: 3.1rem 2.6rem 3.4rem 2.2rem;
+}
+
+sidebar {
+  height: 61.5rem;
+  margin: 0 2.4rem 3.9rem 2.2rem;
+}
+
+.artigos {
+  display: flex;
+  width: 38.2rem;
+  height: 8.4rem;
+  margin-top: 3.2rem;
+}
+
+.details {
+  margin-left: 1.6rem;
+}
+
+.details h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.details p {
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--color-base-white);
+
+  height: 6.4rem;
+  background-color: var(--color-base-blue-50);
+}
+
+@media (min-width: 770px) {
+  #app {
+    display: grid;
+    grid-template-areas:
+      "header header header"
+      "main main sidebar"
+      "footer footer footer";
+    height: 100vh;
+    max-width: 100%;
+  }
+
+  #app header {
+    grid-area: header;
+  }
+
+  #app main {
+    grid-area: main;
+  }
+
+  #app sidebar {
+    grid-area: sidebar;
+  }
+
+  #app footer {
+    grid-area: footer;
+  }
+
+  main {
+    margin: 4.4rem 0 0 10.2rem;
+  }
+
+  sidebar {
+    margin: 4.4rem 11rem 0 3.4rem;
+  }
+
+  .gato1 {
+    width: 100%;
+    display: block;
+  }
+
+  .form-h1 {
+    display: flex;
+    justify-content: space-between;
+    padding: 3.1rem 0rem 0rem 2.2rem;
+  }
+
+  .button-group {
+    margin-left: auto;
+  }
+}
+
+.artigos img,
+.gato1 {
+  aspect-ratio: 16/9;
+  object-fit: cover;
+
+  display: block;
+  transition: all 200ms ease-out, transform 600ms ease-in;
+}
+
+.artigos img:hover,
+.gato1:hover {
+  filter: hue-rotate(7deg) contrast(101%) saturate(200%);
+  transform: scale(1.1) rotate(-2deg);
+}
+
+@keyframes move {
+  from {
+    transform: translateY(--startY);
+  }
+}
+
+.gato1 {
+  --delay: 0.4s;
+  animation: appear 0.4s var(--delay) backwards;
+}
+
+.artigos {
+  --delay: 0.4s;
+  animation: appear 0.4s var(--delay) backwards;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+}
